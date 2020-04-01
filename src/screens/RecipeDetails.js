@@ -29,21 +29,28 @@ export default function RecipeDetails(props) {
 
     return (
         <View container={styles.container}>
-            <Image style={styles.image} source={{uri: recipe.image}}/>
-                <Text style={styles.title}>{recipe.title}</Text>
-                <Text style={styles.bold}>Cooking Time : {recipe.readyInMinutes} minutes</Text>
-                <Text style={styles.bold}>For {recipe.servings} persons</Text>
-                <Text style={styles.bold}>Instructions : </Text>
-                <Text>{recipe.instructions}</Text>
-                <Text style={styles.bold}>Ingredients List : </Text>
-                <FlatList
-                   data={ingredients}
-                   renderItem={values => <Ingredient
-                               item={values.item}
-                           />}
-                   //renderItem={values => <Text>{values.item.title}</Text>}
-                   keyExtractor={item => item.id}
-               />
+            <View style={styles.rowContainer}>
+                <View style={styles.test}>
+                    <Image style={styles.image} source={{uri: recipe.image}}/>
+                    <Text style={styles.title}>{recipe.title}</Text>
+                     <Text style={styles.bold}>Cooking Time : {recipe.readyInMinutes} minutes</Text>
+                     <Text style={styles.bold}>For {recipe.servings} persons</Text>
+                     <Text style={styles.bold}>Instructions : </Text>
+                    <Text>{recipe.instructions}</Text>
+
+                </View>
+                <View style={styles.test}>
+                    <Text style={styles.bold}>Ingredients List : </Text>
+                      <FlatList
+                         data={ingredients}
+                         renderItem={values => <Ingredient
+                                     item={values.item}
+                                 />}
+                         //renderItem={values => <Text>{values.item.title}</Text>}
+                         keyExtractor={item => item.id}
+                     />
+                </View>
+            </View>
         </View>
     );
 }
@@ -51,7 +58,13 @@ export default function RecipeDetails(props) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        flexDirection: 'row',
+    },
+    rowContainer: {
+      flexDirection: 'row'
+    },
+    test: {
+        flex:0.5,
+      flexDirection: 'column'
     },
     image: {
         backgroundColor: "grey",
