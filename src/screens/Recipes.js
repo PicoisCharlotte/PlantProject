@@ -11,18 +11,17 @@ export default function Recipes(props){
         .then(response => response.json())
         .then(json => {
             setData(json.results);
-            console.log('log', json)
         })
         .catch(error => {
             console.error(error);
         })
     }, []);
 
-    /*const onPress = useCallback(
+    const onPress = useCallback(
         selectedItem => {
             console.log('selectedItem', selectedItem);
-            navigation.navigate('Cat', { breedId: selectedItem.id, breedName: selectedItem.name});
-    }, [navigation]);*/
+            navigation.navigate('RecipeDetails', { recipeId: selectedItem.id, recipeTitle: selectedItem.title});
+    }, [navigation]);
 
     return(
         <View style={styles.container}>
@@ -30,6 +29,7 @@ export default function Recipes(props){
             data={data}
             renderItem={values => <Recipe
                         item={values.item}
+                        onPress={onPress}
                     />}
             //renderItem={values => <Text>{values.item.title}</Text>}
             keyExtractor={item => item.id}

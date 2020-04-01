@@ -2,6 +2,7 @@ import React from 'react';
 
 import Home from './screens/Home';
 import Recipes from './screens/Recipes';
+import RecipeDetails from './screens/RecipeDetails';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, TransitionPresets } from '@react-navigation/stack';
 
@@ -24,6 +25,10 @@ export default function App() {
                 name="Recipes"
                 options={{title: 'Recipes'}}
                 component={Recipes} />
+            <Stack.Screen
+                name="RecipeDetails"
+                options={{title: 'Recipe Details'}}
+                component={RecipeDetails} />
           </Stack.Navigator>
         </NavigationContainer>
     );

@@ -14,7 +14,7 @@ export default function Home(props){
             <Image style={styles.header} resizeMode={'cover'} source={require('../images/header.png')}/>
             <Text style={styles.welcome}>Welcome to the Home made recipe application number one !</Text>
             <TouchableHighlight style ={styles.button}>
-                <Button onPress={onPressToList} style={styles.button} title="See all species" />
+                <Button onPress={onPressToList} color='#49E7CD' style={styles.button} title="See all species" />
             </TouchableHighlight>
         </View>
     );
@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
         width:160,
         borderRadius: 100/2,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: '#49E7CD',
     },
 });
