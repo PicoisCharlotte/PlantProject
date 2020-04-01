@@ -14,8 +14,9 @@ export default function Home(props){
             <Image style={styles.header} resizeMode={'cover'} source={require('../images/header.png')}/>
             <Text style={styles.welcome}>Welcome to the Home made recipe application number one !</Text>
             <TouchableHighlight style ={styles.button}>
-                <Button onPress={onPressToList} color='#49E7CD' style={styles.button} title="See all species" />
+                <Button onPress={onPressToList} style={styles.button} color= '#069F9D' title="See all species" />
             </TouchableHighlight>
+            <Image style={styles.footer} source={require('../images/cook.jpg')}/>
         </View>
     );
 }
@@ -53,9 +54,15 @@ const styles = StyleSheet.create({
     button: {
         height: 40,
         width:160,
+        marginTop: 40,
+        backgroundColor: '#069F9D',
         borderRadius: 100/2,
         justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#49E7CD',
+        alignItems: 'center'
     },
+    footer: {
+        width: '100%',
+        height: '40%',
+        marginTop: 20,
+    }
 });

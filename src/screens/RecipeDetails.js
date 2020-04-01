@@ -17,7 +17,7 @@ export default function RecipeDetails(props) {
         .then(response => response.json())
         .then(json => {
             setRecipe(json);
-            setIngredients(recipe.extendedIngredients);
+            setIngredients(json.extendedIngredients);
             console.log('recipe', recipe.extendedIngredients);
 
         })
@@ -30,10 +30,12 @@ export default function RecipeDetails(props) {
     return (
         <View container={styles.container}>
             <Image style={styles.image} source={{uri: recipe.image}}/>
-                <Text>{recipe.title}</Text>
-                <Text>{recipe.readyInMinutes}</Text>
-                <Text>{recipe.serving} persons</Text>
+                <Text style={styles.title}>{recipe.title}</Text>
+                <Text style={styles.bold}>Cooking Time : {recipe.readyInMinutes} minutes</Text>
+                <Text style={styles.bold}>For {recipe.servings} persons</Text>
+                <Text style={styles.bold}>Instructions : </Text>
                 <Text>{recipe.instructions}</Text>
+                <Text style={styles.bold}>Ingredients List : </Text>
                 <FlatList
                    data={ingredients}
                    renderItem={values => <Ingredient
@@ -58,4 +60,12 @@ const styles = StyleSheet.create({
         width: 220,
         margin: 30,
     },
+    title: {
+        fontSize: 20,
+        color: '#44A1A0',
+        fontWeight: 'bold',
+    },
+    bold: {
+        fontWeight: 'bold',
+    }
 });

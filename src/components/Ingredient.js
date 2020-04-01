@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
 
-export default function Family(props){
+export default function Ingredient(props){
     const {item, onPress} = props;
     const {name, image} = item;
 
 
     return (
-        <TouchableOpacity onPress={() => onPress(item)}>
-            <View style={styles.container}>
-                <Image style={styles.image} source={{uri: "https://spoonacular.com/cdn/ingredients_100x100/"+image}}/>
-                <Text style={styles.title}>{name}</Text>
-            </View>
-        </TouchableOpacity>
+        <View style={styles.container}>
+            <Image style={styles.image} source={{uri: "https://spoonacular.com/cdn/ingredients_100x100/"+image}}/>
+            <Text style={styles.title}>{name}</Text>
+        </View>
     );
 }
 
