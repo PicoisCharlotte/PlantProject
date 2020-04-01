@@ -28,57 +28,60 @@ export default function RecipeDetails(props) {
     }, []);
 
     return (
-        <View container={styles.container}>
-            <View style={styles.rowContainer}>
-                <View style={styles.test}>
+                <View container={styles.container}>
+                <View style={styles.rowContainer}>
                     <Image style={styles.image} source={{uri: recipe.image}}/>
-                    <Text style={styles.title}>{recipe.title}</Text>
-                     <Text style={styles.bold}>Cooking Time : {recipe.readyInMinutes} minutes</Text>
-                     <Text style={styles.bold}>For {recipe.servings} persons</Text>
-                     <Text style={styles.bold}>Instructions : </Text>
-                    <Text>{recipe.instructions}</Text>
-
-                </View>
                 <View style={styles.test}>
-                    <Text style={styles.bold}>Ingredients List : </Text>
-                      <FlatList
-                         data={ingredients}
-                         renderItem={values => <Ingredient
-                                     item={values.item}
-                                 />}
-                         //renderItem={values => <Text>{values.item.title}</Text>}
-                         keyExtractor={item => item.id}
-                     />
+                       <FlatList style={styles.flatlist}
+                                             data={ingredients}
+                                             renderItem={values => <Ingredient
+                                                         item={values.item}
+                                                     />}
+                                             //renderItem={values => <Text>{values.item.title}</Text>}
+                                             keyExtractor={item => item.id}
+                                         />
                 </View>
-            </View>
-        </View>
-    );
-}
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-    rowContainer: {
-      flexDirection: 'row'
-    },
-    test: {
-        flex:0.5,
-      flexDirection: 'column'
-    },
-    image: {
-        backgroundColor: "grey",
-        borderRadius: 5,
-        height: 220,
-        width: 220,
-        margin: 30,
-    },
-    title: {
-        fontSize: 20,
-        color: '#44A1A0',
-        fontWeight: 'bold',
-    },
-    bold: {
-        fontWeight: 'bold',
+                </View>
+
+      <Text style={styles.title}>{recipe.title}</Text>
+                        <Text style={styles.bold}>Cooking Time : {recipe.readyInMinutes} minutes</Text>
+                        <Text style={styles.bold}>For {recipe.servings} persons</Text>
+                        <Text style={styles.bold}>Instructions : </Text>
+                        <Text>{recipe.instructions}</Text>
+
+
+                </View>
+            );
     }
-});
+
+    const styles = StyleSheet.create({
+        container: {
+            flex: 1,
+        },
+        rowContainer: {
+          flexDirection: 'row'
+        },
+        test: {
+        },
+        image: {
+            backgroundColor: "grey",
+            borderRadius: 5,
+            height: 110,
+            width: 110,
+            margin: 20,
+        },
+        title: {
+            fontSize: 20,
+            color: '#44A1A0',
+            fontWeight: 'bold',
+        },
+        bold: {
+            fontWeight: 'bold',
+        },
+        flatlist: {
+            height: 30,
+            width: '90%',
+        }
+
+    });
