@@ -13,7 +13,7 @@ export default function RecipeDetails(props) {
 
     useEffect(() => {
         navigation.setOptions({title: params.recipeTitle})
-        fetch('https://api.spoonacular.com/recipes/'+params.recipeId+'/information?includeNutrition=false&apiKey=615b314a6a4b4a54b246b9e99c9519a0')
+        fetch('https://api.spoonacular.com/recipes/'+params.recipeId+'/information?includeNutrition=false&apiKey=ec45e52f836946d2aec3fe29155b1255')
         .then(response => response.json())
         .then(json => {
             setRecipe(json);
@@ -29,27 +29,26 @@ export default function RecipeDetails(props) {
 
     return (
                 <View container={styles.container}>
-                <View style={styles.rowContainer}>
-                    <Image style={styles.image} source={{uri: recipe.image}}/>
-                <View style={styles.test}>
-                       <FlatList style={styles.flatlist}
-                                             data={ingredients}
-                                             renderItem={values => <Ingredient
-                                                         item={values.item}
-                                                     />}
-                                             //renderItem={values => <Text>{values.item.title}</Text>}
-                                             keyExtractor={item => item.id}
-                                         />
-                </View>
+                    <View style={styles.rowContainer}>
+                        <Image style={styles.image} source={{uri: recipe.image}}/>
+                        <View style={styles.test}>
+                            <FlatList style={styles.flatlist}
+                                 data={ingredients}
+                                 renderItem={values => <Ingredient
+                                             item={values.item}
+                                         />}
+                                 //renderItem={values => <Text>{values.item.title}</Text>}
+                                 keyExtractor={item => item.id}
+                             />
+                        </View>
 
-                </View>
+                    </View>
 
-      <Text style={styles.title}>{recipe.title}</Text>
-                        <Text style={styles.bold}>Cooking Time : {recipe.readyInMinutes} minutes</Text>
-                        <Text style={styles.bold}>For {recipe.servings} persons</Text>
-                        <Text style={styles.bold}>Instructions : </Text>
-                        <Text>{recipe.instructions}</Text>
-
+                    <Text style={styles.title}>{recipe.title}</Text>
+                    <Text style={styles.bold}>Cooking Time : {recipe.readyInMinutes} minutes</Text>
+                    <Text style={styles.bold}>For {recipe.servings} persons</Text>
+                    <Text style={styles.bold}>Instructions : </Text>
+                    <Text>{recipe.instructions}</Text>
 
                 </View>
             );
@@ -58,12 +57,12 @@ export default function RecipeDetails(props) {
     const styles = StyleSheet.create({
         container: {
             flex: 1,
+
         },
         rowContainer: {
           flexDirection: 'row'
         },
-        test: {
-        },
+
         image: {
             backgroundColor: "grey",
             borderRadius: 5,
@@ -75,13 +74,16 @@ export default function RecipeDetails(props) {
             fontSize: 20,
             color: '#44A1A0',
             fontWeight: 'bold',
+            marginBottom: 10,
         },
         bold: {
             fontWeight: 'bold',
+            marginBottom: 10,
         },
         flatlist: {
-            height: 30,
-            width: '90%',
+            height: 50,
+            width: '100%',
+            marginTop: 10,
+            marginBottom: 20,
         }
-
     });

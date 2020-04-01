@@ -7,7 +7,7 @@ export default function Recipes(props){
     const {navigation} = props;
 
     useEffect(() => {
-        fetch('https://api.spoonacular.com/recipes/search?apiKey=615b314a6a4b4a54b246b9e99c9519a0')
+        fetch('https://api.spoonacular.com/recipes/search?apiKey=ec45e52f836946d2aec3fe29155b1255')
         .then(response => response.json())
         .then(json => {
             setData(json.results);
